@@ -10,10 +10,13 @@ const variants = {
 
 export function PageTransition({ children }: { children: ReactNode }) {
   const [location] = useLocation();
+  // The portfolio index ↔ detail pair animates with the View Transitions API;
+  // keep one framer key for it so AnimatePresence doesn't delay the DOM swap.
+  const key = location.startsWith("/projects") ? "/projects" : location;
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
-        key={location}
+        key={key}
         variants={variants}
         initial="initial"
         animate="enter"

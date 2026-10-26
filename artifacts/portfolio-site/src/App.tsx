@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import PaintSwirl from "@/pages/PaintSwirl";
 import Projects from "@/pages/Projects";
 import ProjectDetail from "@/pages/ProjectDetail";
+import PortfolioDetail from "@/pages/PortfolioDetail";
 import About from "@/pages/About";
 import Blog from "@/pages/Blog";
 import Nav from "@/components/Nav";
@@ -27,6 +28,7 @@ function Router() {
           <Route path="/"              component={Home}         />
           <Route path="/paint-swirl"   component={PaintSwirl}   />
           <Route path="/projects"      component={Projects}     />
+          <Route path="/projects/:slug" component={PortfolioDetail}/>
           <Route path="/project/:slug" component={ProjectDetail}/>
           <Route path="/blog"          component={Blog}         />
           <Route path="/about"         component={About}        />
