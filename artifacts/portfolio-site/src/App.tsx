@@ -1,4 +1,5 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
+import { MotionConfig } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -42,6 +43,9 @@ function Router() {
 
 function App() {
   return (
+    // reducedMotion="user": Framer Motion drops transform/layout animations (e.g. the
+    // y/rotate/scale on PortfolioCard) when prefers-reduced-motion is set; opacity stays.
+    <MotionConfig reducedMotion="user">
     <ThemeProvider>
       <MusicProvider>
         <CreatorProvider>
@@ -56,6 +60,7 @@ function App() {
         </CreatorProvider>
       </MusicProvider>
     </ThemeProvider>
+    </MotionConfig>
   );
 }
 

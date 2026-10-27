@@ -38,7 +38,7 @@ export default function Projects() {
           <p className="text-muted-foreground flex items-center gap-2 flex-wrap">
             A live index of the {GITHUB_ORG} studio, fed from GitHub.
             <span className={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full ${isLive ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400" : "bg-muted"}`}>
-              <span className={`w-1.5 h-1.5 rounded-full ${isLive ? "bg-emerald-500 animate-pulse" : "bg-muted-foreground"}`} />
+              <span className={`w-1.5 h-1.5 rounded-full ${isLive ? "bg-emerald-500 motion-safe:animate-pulse" : "bg-muted-foreground"}`} />
               {isLive ? "live" : "snapshot"}
             </span>
           </p>
