@@ -1,4 +1,5 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
+import { MotionConfig } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +8,7 @@ import Home from "@/pages/Home";
 import PaintSwirl from "@/pages/PaintSwirl";
 import Projects from "@/pages/Projects";
 import ProjectDetail from "@/pages/ProjectDetail";
+import PortfolioDetail from "@/pages/PortfolioDetail";
 import About from "@/pages/About";
 import Blog from "@/pages/Blog";
 import Nav from "@/components/Nav";
@@ -27,6 +29,7 @@ function Router() {
           <Route path="/"              component={Home}         />
           <Route path="/paint-swirl"   component={PaintSwirl}   />
           <Route path="/projects"      component={Projects}     />
+          <Route path="/projects/:slug" component={PortfolioDetail}/>
           <Route path="/project/:slug" component={ProjectDetail}/>
           <Route path="/blog"          component={Blog}         />
           <Route path="/about"         component={About}        />
@@ -40,6 +43,9 @@ function Router() {
 
 function App() {
   return (
+    // reducedMotion="user": Framer Motion drops transform/layout animations (e.g. the
+    // y/rotate/scale on PortfolioCard) when prefers-reduced-motion is set; opacity stays.
+    <MotionConfig reducedMotion="user">
     <ThemeProvider>
       <MusicProvider>
         <CreatorProvider>
@@ -54,6 +60,7 @@ function App() {
         </CreatorProvider>
       </MusicProvider>
     </ThemeProvider>
+    </MotionConfig>
   );
 }
 
